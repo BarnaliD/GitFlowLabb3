@@ -39,4 +39,10 @@ class RectangleTest {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> new Rectangle(5, -10));
         assertEquals("Length and width must be positive numbers.", exception.getMessage());
     }
+    // Failing test
+    @Test
+    void testCalculateAreaWithIncorrectExpectedValue() {
+        Rectangle rectangle = new Rectangle(5, 10);
+        assertEquals(45, rectangle.calculateArea(), "This test is designed to fail. Expected area is intentionally incorrect.");
+    }
 }
