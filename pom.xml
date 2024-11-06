@@ -9,8 +9,8 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>19</maven.compiler.source>
+        <maven.compiler.target>19</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
@@ -31,7 +31,27 @@
         </dependency>
 
 
+
     </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Surefire plugin to run tests -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version> <!-- Update to the latest version -->
+                <configuration>
+                    <!-- Increase memory settings for running tests -->
+                    <argLine>-Xmx1024m -XX:MaxPermSize=512m</argLine>
+                    <!-- Avoid forking, run tests in the same JVM -->
+                    <forkCount>0</forkCount>
+                    <!-- Compatibility with newer JVM versions -->
+                    <useModulePath>false</useModulePath>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>
