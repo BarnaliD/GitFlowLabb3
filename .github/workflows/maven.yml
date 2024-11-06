@@ -33,11 +33,5 @@ jobs:
     - name: Run tests with Maven
       run: mvn test
 
-    - name: Upload Surefire test report
-      if: failure()  # Only upload if tests fail
-      uses: actions/upload-artifact@v3
-      with:
-        name: surefire-reports
-        path: target/surefire-reports
-
+    
    
